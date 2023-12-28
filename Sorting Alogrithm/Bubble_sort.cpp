@@ -1,21 +1,27 @@
 #include <iostream>
 using namespace std;
 
-void insertion_sort(int arr[], int n)
+void swap(int &a, int &b)
 {
-    int i, j, key;
-    for (i = 1; i < n; i++)
+    // swap the values of a and b
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+void bubble_sort(int arr[], int n)
+{
+    int i, j;
+    for (i = 0; i < n - 1; i++)
     {
-        key = arr[i]; // key is the element to be inserted
-        j = i - 1;
-        while (j >= 0 && arr[j] > key)
+        // last i elements are already in place
+        for (j = 0; j < n - i - 1; j++)
         {
-            // shift the elements to the right
-            arr[j + 1] = arr[j];
-            j--;
+            // traverse the array from 0 to n - i - 1
+            // swap if the element found is greater than the next element
+            if (arr[j] > arr[j + 1])
+                swap(arr[j], arr[j + 1]);
         }
-        // insert the element at its correct position
-        arr[j + 1] = key;
     }
 }
 
@@ -23,7 +29,7 @@ int main()
 {
     int arr[] = {5, 2, 4, 6, 1, 3};
     int n = sizeof(arr) / sizeof(arr[0]);
-    insertion_sort(arr, n);
+    bubble_sort(arr, n);
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
     return 0;
