@@ -5,10 +5,10 @@ using namespace std;
 
 Vertice::Vertice(int id) {
     this->id = id;
-    this->neighbors = vector<Vertice>();
+    this->neighbors = vector<Vertice*>();
 }
 
-void Vertice::addNeighbor(Vertice neighbor) {
+void Vertice::addNeighbor(Vertice* neighbor) {
     this->neighbors.push_back(neighbor);
 }
 
@@ -20,6 +20,6 @@ int Vertice::getId() {
     return this->id;
 }
 
-vector<Vertice> Vertice::getNeighbors() {
+vector<Vertice*> Vertice::getNeighbors() {
     return this->neighbors;
 }

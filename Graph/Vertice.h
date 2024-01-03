@@ -7,13 +7,13 @@ using namespace std;
 class Vertice {
 private:
     int id;
-    vector<Vertice> neighbors;
+    vector<Vertice*> neighbors;
 
 public:
     Vertice(int id);
-    void addNeighbor(Vertice neighbor);
+    void addNeighbor(Vertice* neighbor);
     int getId();
-    vector<Vertice> getNeighbors();
+    vector<Vertice*> getNeighbors();
     void print();
 };
 
