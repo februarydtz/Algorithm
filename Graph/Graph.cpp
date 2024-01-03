@@ -19,16 +19,14 @@ void Graph::addEdge(Vertice* v1, Vertice* v2) {
 }
 
 void Graph::DFS(Vertice* v) {
-    vector<bool> visited;
-    for (int i = 0; i < this->vertices.size(); i++)
-        visited.push_back(false);
+    vector<Vertice*> visited;
     vector<Vertice*> stack;
     stack.push_back(v);
     while (!stack.empty()) {
         Vertice* current = stack.back();
         stack.pop_back();
-        if (!visited[current->getId()]) {
-            visited[current->getId()] = true;
+        if (find(visited.begin(), visited.end(), current) == visited.end()) {
+            visited.push_back(current);
             current->print();
             vector<Vertice*> neighbors = current->getNeighbors();
             for (int i = 0; i < neighbors.size(); i++)
@@ -38,16 +36,14 @@ void Graph::DFS(Vertice* v) {
 }
 
 void Graph::BFS(Vertice* v) {
-    vector<bool> visited;
-    for (int i = 0; i < this->vertices.size(); i++)
-        visited.push_back(false);
+    vector<Vertice*> visited;
     vector<Vertice*> queue;
     queue.push_back(v);
     while (!queue.empty()) {
         Vertice* current = queue.front();
         queue.erase(queue.begin());
-        if (!visited[current->getId()]) {
-            visited[current->getId()] = true;
+        if (find(visited.begin(), visited.end(), current) == visited.end()) {
+            visited.push_back(current);
             current->print();
             vector<Vertice*> neighbors = current->getNeighbors();
             for (int i = 0; i < neighbors.size(); i++)
@@ -64,29 +60,20 @@ int main(){
     Vertice* v4 = new Vertice(4);
     Vertice* v5 = new Vertice(5);
     Vertice* v6 = new Vertice(6);
-    Vertice* v7 = new Vertice(7);
-    Vertice* v8 = new Vertice(8);
-    Vertice* v9 = new Vertice(9);
-    Vertice* v10 = new Vertice(10);
     g->addVertice(v1);
     g->addVertice(v2);
     g->addVertice(v3);
     g->addVertice(v4);
     g->addVertice(v5);
     g->addVertice(v6);
-    g->addVertice(v7);
-    g->addVertice(v8);
-    g->addVertice(v9);
-    g->addVertice(v10);
     g->addEdge(v1, v2);
     g->addEdge(v1, v3);
-    g->addEdge(v1, v4);
-    g->addEdge(v2, v5);
-    g->addEdge(v2, v6);
-    g->addEdge(v3, v7);
-    g->addEdge(v3, v8);
-    g->addEdge(v4, v9);
-    g->addEdge(v4, v10);
+    g->addEdge(v2, v4);
+    g->addEdge(v3, v4);
+    g->addEdge(v3, v5);
+    g->addEdge(v4, v5);
+    g->addEdge(v5, v6);
+
     g->DFS(v1);
     cout << endl;
     g->BFS(v1);
