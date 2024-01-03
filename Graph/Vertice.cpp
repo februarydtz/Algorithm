@@ -15,3 +15,11 @@ void Vertice::addNeighbor(Vertice neighbor) {
 void Vertice::print(){
     cout << this->id << endl;
 }
+
+int Vertice::getId() {
+    return this->id;
+}
+
+vector<Vertice> Vertice::getNeighbors() {
+    return this->neighbors;
+}

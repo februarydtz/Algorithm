@@ -12,6 +12,7 @@ private:
 public:
     Vertice(int id);
     void addNeighbor(Vertice neighbor);
+    int getId();
     vector<Vertice> getNeighbors();
     void print();
 };
