@@ -18,7 +18,7 @@ void Graph::addEdge(Vertice &v1, Vertice &v2) {
     v2.addNeighbor(v1);
 }
 
-void Graph::DFS(Vertice v) {
+void Graph::DFS(Vertice &v) {
     // TODO
     vector<bool> visited;
     for (int i = 0; i < this->vertices.size(); i++) {
@@ -32,15 +32,13 @@ void Graph::DFS(Vertice v) {
         if (!visited[current.getId()]) {
             current.print();
             visited[current.getId()] = true;
-            vector<Vertice> neighbors = current.getNeighbors();
-            for (int i = 0; i < neighbors.size(); i++) {
-                stack.push_back(neighbors[i]);
-            }
+            for (auto i : current.getNeighbors())
+                stack.push_back(i);
         }
     }
 }
 
-void Graph::BFS(Vertice v) {
+void Graph::BFS(Vertice &v) {
     // TODO
     vector<bool> visited;
     for (int i = 0; i < this->vertices.size(); i++) {
@@ -54,10 +52,8 @@ void Graph::BFS(Vertice v) {
         if (!visited[current.getId()]) {
             current.print();
             visited[current.getId()] = true;
-            vector<Vertice> neighbors = current.getNeighbors();
-            for (int i = 0; i < neighbors.size(); i++) {
-                queue.push_back(neighbors[i]);
-            }
+            for (auto i : current.getNeighbors())
+                queue.push_back(i);
         }
     }
 }

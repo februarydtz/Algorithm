@@ -12,8 +12,8 @@ class Graph {
         Graph();
         void addVertice(Vertice &v);
         void addEdge(Vertice &v1, Vertice &v2);
-        void DFS(Vertice v);
-        void BFS(Vertice v);
+        void DFS(Vertice &v);
+        void BFS(Vertice &v);
 };
 
 #endif
