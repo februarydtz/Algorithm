@@ -135,6 +135,9 @@ int main(){
     tree.insertNode(6);
     tree.insertNode(8);
     tree.inOrder(tree.root);
+    cout << endl;
     tree.preOrder(tree.root);
+    cout << endl;
     tree.postOrder(tree.root);
+    cout << endl;
 }
