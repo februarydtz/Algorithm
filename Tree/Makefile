@@ -8,4 +8,4 @@ Tree.o: Tree.cpp Tree.h
 	g++ -c Tree.cpp
 
 clean:
-	rm -r *.o main*
+	rm -r *.o main
