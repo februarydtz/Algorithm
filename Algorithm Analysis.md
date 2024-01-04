@@ -8,7 +8,7 @@
 
 **Solution:** 
 
-    (1) Let the temporary maximum value be equal to the first integer in the sequence.   (At each stage of the entire process, the temporary maximum value is equal to the largest integer that has been checked)
+    (1) Let the temporary maximum value be equal to the first integer in the sequence. <br>(At each stage of the entire process, the temporary maximum value is equal to the largest integer that has been checked)
 
     (2) Compare the next integer in the sequence with the temporary maximum value.   If this number is greater than the temporary maximum value, set the temporary maximum value to this integer.
 
