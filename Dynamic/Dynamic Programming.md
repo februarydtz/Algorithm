@@ -311,7 +311,7 @@ When we can choose item 1 and 2, $arr[2][13] = max(arr[1][13], arr[1][13-3]+2)$
 
 So we can get the following formula:
 
-![](https://latex.codecogs.com/svg.image?arr[i][j]=\begin{cases}\space&space;arr[i-1][j]&(j<w_i)\\\space&space;max(arr[i-1][j],arr[i-1][j-w_i]&plus;v_i)&(j>w_i)\\\end{cases})
+![]()
 
 
 Then the table will be:
