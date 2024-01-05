@@ -9,8 +9,7 @@ Given a set of $n$ items numbered from $1$ up to $n$, each with a weight $w_i$ a
 > INPUT:<br> 
 > $Capacity = 13, n = 5, V = [24,2,9,10,9], W = [10,3,4,5,4]$
 
-If we solve this problem by greedy algorithm, we need to calculate the value per weight first:
-$$ v_w = v_i / w_i$$
+If we solve this problem by greedy algorithm, we need to calculate the value per weight first: $$v_w = v_i / w_i$$
 
 Then we got $v_w = [2.4,0.667,2.25,2,2.25]$.
 In this way, the priority for picking up items is: 0->2->4->3->1. Under the limit of the upper capacity limit of 13, we will pick up item 0 and 1, and get the total value of the items to be 26.
