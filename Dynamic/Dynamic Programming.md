@@ -42,13 +42,13 @@ Using dynamic programming ideas, we need to first find the optimal substructure 
 That is, if we have max capacity 13, and 5 items. The optimal substructure could be the solution of capacity 12 with 5 items, or capacity 13 with 4 items, or less.
 So we can build a two-dimensional array to solve this problem.
 
-| i \ j | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
-|:-----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 0     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0  | 0  | 0  | 0  |
-| 1     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
-| 2     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
-| 3     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
-| 4     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+    | i \ j | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
+    |:-----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+    | 0     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0  | 0  | 0  | 0  |
+    | 1     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+    | 2     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+    | 3     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+    | 4     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
 
 
 When we can only choose item 1:
