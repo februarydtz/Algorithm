@@ -19,7 +19,8 @@ But has the greedy algorithm obtained the optimal solution? It can be observed t
 1. Brute Force Enumeration
 List all the products one by one, then remove the combinations that do not meet the capacity limit, and find the maximum value among the remaining ones, which is the optimal solution.
     ```
-    Pseudocode:
+    Pseudocode: KnapsackSR(h,i,c): Select the optimal solution when the capacity is c among the $h_th$ to $i_th$ commodities.
     > 
     > Input: Item set {h, ..., i}
+    > Output: 
     ```
