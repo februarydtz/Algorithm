@@ -310,7 +310,7 @@ When we can choose item 1 and 2, $arr[2][13] = max(arr[1][13], arr[1][13-3]+2)$
 </table><br>
 
 So we can get the following formula:<br>
-<img src="https://github.com/februarydtz/Algorithm/blob/C%2B%2B/Dynamic/img/CodeCogsEqn.gif" alt="Formula" style="align: center">
+<center><img src="https://github.com/februarydtz/Algorithm/blob/C%2B%2B/Dynamic/img/CodeCogsEqn.gif" alt="Formula" style="align: center"></center>
 
 
 Then the table will be:
