@@ -2,7 +2,7 @@
 Dynamic programming refers to simplifying a complicated problem by breaking it down into simpler sub-problems in a recursive manner. In computer science, if a problem can be solved optimally by breaking it into sub-problems and then recursively finding the optimal solutions to the sub-problems, then it is said to have optimal substructure.
 
 ## 0-1 Knapsack Problem
-Reference: [0/1 Knapsack Problem](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/)
+Reference: [0/1 Knapsack Problem](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/)<br>
 
 Given a set of $n$ items numbered from $1$ up to $n$, each with a weight $w_i$ and a value $v_i$, along with a maximum weight capacity $Capacity$, maximize the sum of the values of the items in the knapsack so that the sum of the weights is less than or equal to the knapsack's capacity.
 
