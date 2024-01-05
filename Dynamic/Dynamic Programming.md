@@ -311,20 +311,14 @@ When we can choose item 1 and 2, $arr[2][13] = max(arr[1][13], arr[1][13-3]+2)$
 
 So we can get the following formula:
 
+```latex
 $$ arr[i][j] =
 \begin{cases}
 \space arr[i-1][j]&(j<w_i) \\
 \space max(arr[i-1][j], arr[i-1][j-w_i]+v_i)&(j>w_i)\\
 \end{cases}
 $$
-
-$$ F^{HLLC}=\left\{
-\begin{array}{rcl}
-F_L       &      & {0      <      S_L}\\
-F^*_L     &      & {S_L \leq 0 < S_M}\\
-F^*_R     &      & {S_M \leq 0 < S_R}\\
-F_R       &      & {S_R \leq 0}
-\end{array} \right. $$
+```
 
 Then the table will be:
 <table>
