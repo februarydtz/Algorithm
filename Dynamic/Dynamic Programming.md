@@ -7,4 +7,13 @@ Given a set of $n$ items numbered from $1$ up to $n$, each with a weight $w_i$ a
 
 > ### Example<br>
 > INPUT:<br> 
-> $Capacity = 10, n = 4, V = [2,4,3,7], W = [2,3,5,5]$
+> $Capacity = 13, n = 5, V = [24,2,9,10,9], W = [10,3,4,5,4]$
+
+If we solve this problem by greedy algorithm, we need to calculate the value per weight first:
+$$ v_w = v_i / w_i$$
+
+Then we got $v_w = [2.4,0.667,2.25,2,2.25]$.
+In this way, the priority for picking up items is: 0->2->4->3->1. Under the limit of the upper capacity limit of 13, we will pick up item 0 and 1, and get the total value of the items to be 26.
+
+But has the greedy algorithm obtained the optimal solution? It can be observed that if we select items 2, 3 and 4, we will get a backpack with a total value of 28.
+
