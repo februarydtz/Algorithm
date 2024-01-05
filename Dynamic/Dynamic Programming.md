@@ -54,7 +54,7 @@ So we can build a two-dimensional array to solve this problem.
 
 
 
-When we can only choose item 1:
+If we can only choose item 1:
 <table>
     <thead>
         <tr>
@@ -181,7 +181,7 @@ When we can only choose item 1:
     </tbody>
 </table><br>
 
-When we can choose item 1 and 2, $arr[2][13] = max(arr[1][13], arr[1][13-3]+2)$
+If we can choose item 1 and 2, $arr[2][13] = max(arr[1][13], arr[1][13-3]+2)$
 
 <table>
     <thead>
@@ -440,4 +440,4 @@ Then the table will be:
     </tbody>
 </table><br>
 
-From this we get the optimal solution: when the number of items is 5 and the total capacity is 13, the maximum backpack value is 28
+From this we get the optimal solution: if the number of items is 5 and the total capacity is 13, the maximum backpack value is 28
