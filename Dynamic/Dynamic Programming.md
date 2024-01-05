@@ -1,4 +1,5 @@
 # Dynamic Programming
+Dynamic programming refers to simplifying a complicated problem by breaking it down into simpler sub-problems in a recursive manner. In computer science, if a problem can be solved optimally by breaking it into sub-problems and then recursively finding the optimal solutions to the sub-problems, then it is said to have optimal substructure.
 
 ## 0-1 Knapsack Problem
 Reference: [0/1 Knapsack Problem](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/)
@@ -37,3 +38,35 @@ List all the products one by one, then remove the combinations that do not meet 
     Time Complexity of brute force enumeration: $O(2^n)$
 
 2. Dynamic Programming
+Using dynamic programming ideas, we need to first find the optimal substructure of the 0-1 knapsack problem.
+That is, if we have max capacity 13, and 5 items. The optimal substructure could be the solution of capacity 12 with 5 items, or capacity 13 with 4 items, or less.
+So we can build a two-dimensional array to solve this problem.
+
+| i \ j | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
+|:-----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0  | 0  | 0  | 0  |
+| 1     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+| 2     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+| 3     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+| 4     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+
+
+When we can only choose item 1:
+
+    | i \ j | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
+    |:-----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+    | 0     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0  | 0  | 0  | 0  |
+    | 1     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 24 | 24 | 24 | 24 |
+    | 2     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+    | 3     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+    | 4     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+
+When we can choose item 1 and 2:
+
+    | i \ j | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
+    |:-----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+    | 0     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0  | 0  | 0  | 0  |
+    | 1     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 24 | 24 | 24 | 24 |
+    | 2     | 0 | 0 | 0 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 24 | 24 | 26 | 26 |
+    | 3     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+    | 4     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
