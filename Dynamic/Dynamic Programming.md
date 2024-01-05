@@ -17,7 +17,7 @@ In this way, the priority for picking up items is: 0->2->4->3->1. Under the limi
 
 But has the greedy algorithm obtained the optimal solution? It can be observed that if we select items 2, 3 and 4, we will get a backpack with a total value of 28.
 
-1. Brute Force Enumeration
+1. #### Brute Force Enumeration
 List all the products one by one, then remove the combinations that do not meet the capacity limit, and find the maximum value among the remaining ones, which is the optimal solution.
 
     > Pseudocode:<br>
@@ -37,7 +37,7 @@ List all the products one by one, then remove the combinations that do not meet 
 
     Time Complexity of brute force enumeration: $O(2^n)$
 
-2. Dynamic Programming
+2. #### Dynamic Programming
 Using dynamic programming ideas, we need to first find the optimal substructure of the 0-1 knapsack problem.<br>
 For each item, we only have two choices, pick or not pick. If we delete one item from a optimal solution, then we delete the weight from the total weights, it's should also be a optimal solution.<br>
 That is, if we have max capacity 13, and 5 items. The optimal substructure could be the solution of capacity 12 with 5 items, or capacity 13 with 4 items, or less.
@@ -54,8 +54,8 @@ So we can build a two-dimensional array to solve this problem.
 
 
 
-&emsp;When we can only choose item 1:
-<table  style="margin-left: 40px">
+When we can only choose item 1:
+<table>
     <thead>
         <tr>
             <th>i \ j</th>
@@ -181,9 +181,9 @@ So we can build a two-dimensional array to solve this problem.
     </tbody>
 </table><br>
 
-&emsp;When we can choose item 1 and 2, $arr[2][13] = max(arr[1][13], arr[1][13-3]+2)$
+When we can choose item 1 and 2, $arr[2][13] = max(arr[1][13], arr[1][13-3]+2)$
 
-<table  style="margin-left: 40px">
+<table>
     <thead>
         <tr>
             <th>i \ j</th>
@@ -309,7 +309,7 @@ So we can build a two-dimensional array to solve this problem.
     </tbody>
 </table><br>
 
-&emsp;So we can get the following formula:
+So we can get the following formula:
 
 $$ arr[i][j] =
 \begin{cases}
@@ -318,8 +318,8 @@ $$ arr[i][j] =
 \end{cases}
 $$<br>
 
-&emsp;Then the table will be:
-<table  style="margin-left: 40px">
+Then the table will be:
+<table>
     <thead>
         <tr>
             <th>i \ j</th>
@@ -445,4 +445,4 @@ $$<br>
     </tbody>
 </table><br>
 
-&emsp;From this we get the optimal solution: when the number of items is 5 and the total capacity is 13, the maximum backpack value is 28
+From this we get the optimal solution: when the number of items is 5 and the total capacity is 13, the maximum backpack value is 28
