@@ -21,19 +21,19 @@ But has the greedy algorithm obtained the optimal solution? It can be observed t
 List all the products one by one, then remove the combinations that do not meet the capacity limit, and find the maximum value among the remaining ones, which is the optimal solution.
 
     > Pseudocode:<br>
-    $KnapsackSR(h,i,c)$: Select the optimal solution when the capacity is c among the $h$ to $i$ items.<br> <br>
-    Input: Item set $[{h, ..., i}]$<br>
-    Output: The maximum value $P$<br><br>
-    if $c < 0$ then<br>
-    &emsp;return $-\infty$<br>
-    endif<br>
-    if $i \le h - 1$ then<br>
-    &emsp;return 0<br>
-    endif<br>
-    $P_1 \gets Knapsack(h, i-1, c-v_i)$<br>
-    $P_2 \gets Knapsack(h, i-1, c)$<br>
-    $P \gets max\{P_1 + p_i, P_2\}$<br>
-    return $P$
+    > $KnapsackSR(h,i,c)$: Select the optimal solution when the capacity is c among the $h$ to > > $i$ items.<br> <br>
+    > Input: Item set $[{h, ..., i}]$<br>
+    > Output: The maximum value $P$<br><br>
+    > if $c < 0$ then<br>
+    > &emsp;return $-\infty$<br>
+    > endif<br>
+    > if $i \le h - 1$ then<br>
+    > &emsp;return 0<br>
+    > endif<br>
+    > $P_1 \gets Knapsack(h, i-1, c-v_i)$<br>
+    > $P_2 \gets Knapsack(h, i-1, c)$<br>
+    > $P \gets max\{P_1 + p_i, P_2\}$<br>
+    > return $P$
 
     Time Complexity of brute force enumeration: $O(2^n)$
 
@@ -49,24 +49,399 @@ So we can build a two-dimensional array to solve this problem.
     | 2     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
     | 3     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
     | 4     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+    | 5     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+
 
 
 When we can only choose item 1:
+<table  style="margin-left: 40px">
+    <thead>
+        <tr>
+            <th>i \ j</th>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th>13</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 
-    | i \ j | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
-    |:-----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-    | 0     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0  | 0  | 0  | 0  |
-    | 1     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 24 | 24 | 24 | 24 |
-    | 2     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
-    | 3     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
-    | 4     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+When we can choose item 1 and 2, $arr[2][13] = max(arr[1][13], arr[1][13-3]+2)$
 
-When we can choose item 1 and 2:
+<table  style="margin-left: 40px">
+    <thead>
+        <tr>
+            <th>i \ j</th>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th>13</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>26</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 
-    | i \ j | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
-    |:-----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-    | 0     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0  | 0  | 0  | 0  |
-    | 1     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 24 | 24 | 24 | 24 |
-    | 2     | 0 | 0 | 0 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 24 | 24 | 26 | 26 |
-    | 3     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
-    | 4     | 0 |   |   |   |   |   |   |   |   |   |    |    |    |    |
+So we can get the following formula:
+
+$$ arr[i][j] =
+\begin{cases}
+\space arr[i-1][j]&(j<w_i) \\
+\space max(arr[i-1][j], arr[i-1][j-w_i]+v_i)&(j>w_i)\\
+\end{cases}
+$$
+
+Then the table will be:
+<table  style="margin-left: 40px">
+    <thead>
+        <tr>
+            <th>i \ j</th>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th>13</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>26</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>2</td>
+            <td>2</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>26</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>2</td>
+            <td>2</td>
+            <td>9</td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+            <td>19</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>26</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>2</td>
+            <td>2</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>11</td>
+            <td>18</td>
+            <td>19</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>28</td>
+        </tr>    
+    </tbody>
+</table>
+
+From this we get the optimal solution: when the number of items is 5 and the total capacity is 13, the maximum backpack value is 28
