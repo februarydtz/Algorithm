@@ -38,7 +38,8 @@ List all the products one by one, then remove the combinations that do not meet 
     Time Complexity of brute force enumeration: $O(2^n)$
 
 2. Dynamic Programming
-Using dynamic programming ideas, we need to first find the optimal substructure of the 0-1 knapsack problem.
+Using dynamic programming ideas, we need to first find the optimal substructure of the 0-1 knapsack problem.<br>
+For each item, we only have two choices, pick or not pick. If we delete one item from a optimal solution, then we delete the weight from the total weights, it's should also be a optimal solution.<br>
 That is, if we have max capacity 13, and 5 items. The optimal substructure could be the solution of capacity 12 with 5 items, or capacity 13 with 4 items, or less.
 So we can build a two-dimensional array to solve this problem.
 
