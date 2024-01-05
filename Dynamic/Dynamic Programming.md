@@ -316,7 +316,7 @@ $$ arr[i][j] =
 \space arr[i-1][j]&(j<w_i) \\
 \space max(arr[i-1][j], arr[i-1][j-w_i]+v_i)&(j>w_i)\\
 \end{cases}
-$$<br>
+$$
 
 Then the table will be:
 <table>
