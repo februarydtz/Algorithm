@@ -5,12 +5,9 @@ Reference: [0/1 Knapsack Problem](https://www.geeksforgeeks.org/0-1-knapsack-pro
 
 Given a set of $n$ items numbered from $1$ up to $n$, each with a weight $w_i$ and a value $v_i$, along with a maximum weight capacity $Capacity$, maximize the sum of the values of the items in the knapsack so that the sum of the weights is less than or equal to the knapsack's capacity.
 
-\fbox{\parbox{5in}{
-    ### Example<br>
-    INPUT:<br> 
-    $Capacity = 13, n = 5, V = [24,2,9,10,9], W = [10,3,4,5,4]$
-}}
-
+> ### Example<br>
+> INPUT:<br> 
+> $Capacity = 13, n = 5, V = [24,2,9,10,9], W = [10,3,4,5,4]$
 
 If we solve this problem by greedy algorithm, we need to calculate the value per weight first: $vw = v_i / w_i$
 
@@ -21,7 +18,8 @@ But has the greedy algorithm obtained the optimal solution? It can be observed t
 
 1. Brute Force Enumeration
 List all the products one by one, then remove the combinations that do not meet the capacity limit, and find the maximum value among the remaining ones, which is the optimal solution.
-
+    ```
     Pseudocode:
     > 
     > Input: Item set {h, ..., i}
+    ```
