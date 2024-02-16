@@ -80,12 +80,42 @@ void showLL(List l) {
     printf("\n");
 }
 
+void reverseLL(List l) {
+    Node* prev = NULL;
+    Node* current = l;
+    Node* next = NULL;
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    l = prev;
+}
+
 int sizeLL(List l) {
     Node* temp = l;
     int size = 0;
-    while (temp != NULL) {
-        size++;
-        temp = temp->next;
+    if (temp == NULL) {
+        return 0;
+    } else {
+        return 1 + sizeLL(temp->next);
     }
-    return size;
+}
+
+int main() {
+    List l = NULL;
+    l = insertLL(l, 1);
+    l = insertLL(l, 2);
+    l = insertLL(l, 3);
+    l = insertLL(l, 4);
+    l = insertLL(l, 5);
+    showLL(l);
+    l = deleteLL(l, 3);
+    showLL(l);
+    printf("%d\n", inLL(l, 3));
+    printf("%d\n", inLL(l, 4));
+    printf("%d\n", sizeLL(l));
+    freeLL(l);
+    return 0;
 }
